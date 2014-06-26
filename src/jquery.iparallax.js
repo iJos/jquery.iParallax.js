@@ -17,10 +17,12 @@
                 parallax_binder     : document,
                 parallax_element    : "",
                 velocity_ratio_x    : 100,
-                velocity_ratio_y    : 100
+                velocity_ratio_y    : 100,
+                offset_x            : 0,
+                offset_y            : 0,
             };
             var options = $.extend(defaults, options);
-            new_iParallax_obj(options);
+            new new_iParallax_obj(options);
         }
     };
 
@@ -41,14 +43,15 @@
     };
 
     function new_iParallax_obj(options) {
+        console.log(options);
         var start_left = parseInt($(options.parallax_element).css("left"));
         var start_top  = parseInt($(options.parallax_element).css("top"));
         $(options.parallax_binder).mousemove(function(e){
             var amountMovedX = (e.pageX * -1 / options.velocity_ratio_x);
             var amountMovedY = (e.pageY * -1 / options.velocity_ratio_y);
             $(options.parallax_element).css({
-                'left': start_left + amountMovedX,
-                'top' : start_top  + amountMovedY
+                'left': start_left + amountMovedX + options.offset_x,
+                'top' : start_top  + amountMovedY + options.offset_y
             });
         });
     }
