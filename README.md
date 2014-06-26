@@ -47,12 +47,14 @@ This is the element affected by our parallax. There is no default
 #### velocity_ratio_
 
 This is the velocity ratio (multiplier) the lower number, more aggresive parallax effect. Defaults `100` (X and Y)
+
 `velocity_ratio_x        : 150,
  velocity_ratio_y        : 150`
 
 #### offset_
 
 Do you want to adjust your container perfectly? Use the offset. Defaults `0` (X and Y)
+
 `offset_x                : 10,
  offset_y                : 0`
 
