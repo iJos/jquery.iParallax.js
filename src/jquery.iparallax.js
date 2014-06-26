@@ -22,7 +22,7 @@
                 offset_y            : 0,
             };
             var options = $.extend(defaults, options);
-            new new_iParallax_obj(options);
+            new_iParallax_obj(options);
         }
     };
 
@@ -43,7 +43,6 @@
     };
 
     function new_iParallax_obj(options) {
-        console.log(options);
         var start_left = parseInt($(options.parallax_element).css("left"));
         var start_top  = parseInt($(options.parallax_element).css("top"));
         $(options.parallax_binder).mousemove(function(e){
