@@ -22,6 +22,12 @@
                 offset_y            : 0,
             };
             var options = $.extend(defaults, options);
+
+            $(options.parallax_element).css({
+                'position' : 'relative',
+                'left': '0px', 
+                'top' : '0px'
+            });
             new_iParallax_obj(options);
         }
     };
@@ -29,12 +35,9 @@
     $.fn.iParallax = function(methodOrOptions) {
         if(methods[methodOrOptions]){
             //Methods
-
             return methods[methodOrOptions].apply(this, Array.prototype.slice.call(arguments, 1));
         }else if(typeof methodOrOptions === 'object' || ! methodOrOptions){
             // Default to "init"
-
-            //var arguments = $.extend(defaults, methodOrOptions); console.log();
             return methods.init.apply(this, arguments);
         }else{
             //Error
@@ -43,15 +46,20 @@
     };
 
     function new_iParallax_obj(options) {
+
         var start_left = parseInt($(options.parallax_element).css("left"));
         var start_top  = parseInt($(options.parallax_element).css("top"));
+
         $(options.parallax_binder).mousemove(function(e){
+
             var amountMovedX = (e.pageX * -1 / options.velocity_ratio_x);
             var amountMovedY = (e.pageY * -1 / options.velocity_ratio_y);
+
             $(options.parallax_element).css({
-                'left': start_left + amountMovedX + options.offset_x,
+                'left': start_left + amountMovedX + options.offset_x, 
                 'top' : start_top  + amountMovedY + options.offset_y
             });
+
         });
     }
 
